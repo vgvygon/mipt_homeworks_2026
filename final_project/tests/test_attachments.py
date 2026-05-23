@@ -2,8 +2,12 @@ from pathlib import Path
 
 import pytest
 
-from gigavibe.attachments import AttachmentError, expand_attachments, normalize_path
-from gigavibe.attachments import read_limited_text_file
+from gigavibe.service.attachments import (
+    AttachmentError,
+    expand_attachments,
+    normalize_path,
+    read_limited_text_file,
+)
 
 
 def test_normalize_path_relative(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

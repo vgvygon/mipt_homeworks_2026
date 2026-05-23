@@ -1,12 +1,11 @@
-from __future__ import annotations
-
 import os
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from dotenv import load_dotenv
 import yaml
+from dotenv import load_dotenv
+
+from gigavibe.dto.settings import Settings
 
 DEFAULT_MODEL = 'gpt-3.5-turbo'
 CONFIG_FILE = 'config.yaml'
@@ -24,18 +23,6 @@ ENV_KEYS = (
 
 class SettingsError(ValueError):
     pass
-
-
-@dataclass(frozen=True)
-class Settings:
-    api_key: str
-    api_host: str
-    model: str
-    temperature: float
-    limit_message: int | None
-    limit_chars: int | None
-    system_prompt: str | None
-    stream: bool
 
 
 def load_settings(path: Path | None = None) -> Settings:

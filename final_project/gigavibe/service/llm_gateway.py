@@ -1,10 +1,8 @@
-from __future__ import annotations
-
 import importlib
 from dataclasses import dataclass
 from typing import Any, Callable, cast
 
-from gigavibe.settings import Settings
+from gigavibe.dto.settings import Settings
 
 TokenPrinter = Callable[[str], None]
 
@@ -17,7 +15,7 @@ class LLMGateway:
     stream: bool
 
     @classmethod
-    def from_settings(cls, settings: Settings) -> LLMGateway:
+    def from_settings(cls, settings: Settings) -> 'LLMGateway':
         openai_module: Any = importlib.import_module('openai')
         openai_class = openai_module.OpenAI
         client = openai_class(api_key=settings.api_key, base_url=settings.api_host)

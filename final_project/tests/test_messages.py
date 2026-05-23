@@ -1,4 +1,5 @@
-from gigavibe.messages import ChatMessage, ConversationMemory, messages_for_api
+from gigavibe.dto.message import ChatMessage
+from gigavibe.service.message import ConversationMemory, messages_for_api
 
 
 def test_messages_for_api_adds_system_prompt() -> None:

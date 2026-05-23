@@ -1,9 +1,8 @@
-from __future__ import annotations
-
 from typing import Callable
 
-from gigavibe.app import ConsoleAssistant
-from gigavibe.messages import ConversationMemory
+from gigavibe.app.chunk_mode import build_chunk_prompt
+from gigavibe.app.console import ConsoleAssistant
+from gigavibe.service.message import ConversationMemory
 
 
 class FakeBackend:
@@ -22,11 +21,8 @@ class FakeBackend:
 
 
 def test_build_chunk_prompt() -> None:
-    memory = ConversationMemory(limit_message=10, limit_chars=100)
-    assistant = ConsoleAssistant(None, FakeBackend(), memory)
-
-    assert assistant._build_chunk_prompt('', 'chunk') == 'chunk'
-    assert assistant._build_chunk_prompt('do it', 'chunk') == 'do it\n\nchunk'
+    assert build_chunk_prompt('', 'chunk') == 'chunk'
+    assert build_chunk_prompt('do it', 'chunk') == 'do it\n\nchunk'
 
 
 def test_regular_message_adds_answer() -> None:

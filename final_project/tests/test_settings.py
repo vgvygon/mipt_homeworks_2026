@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from gigavibe.settings import SettingsError, load_settings
+from gigavibe.config.setting_loader import SettingsError, load_settings
 
 ENV_NAMES = (
     'API_KEY',

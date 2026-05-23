@@ -1,6 +1,6 @@
 import pytest
 
-from gigavibe.chunks import iter_chunks, parse_chunk_command, split_paragraphs
+from gigavibe.service.chunks import iter_chunks, parse_chunk_command, split_paragraphs
 
 
 def test_parse_default_chunk_command() -> None:

@@ -1,4 +1,4 @@
-from gigavibe.app import run
+from gigavibe.app.runner import run
 
 
 if __name__ == '__main__':
